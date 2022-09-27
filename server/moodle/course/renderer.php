@@ -1539,13 +1539,10 @@ class core_course_renderer extends plugin_renderer_base {
      */
     protected function coursecat_category(coursecat_helper $chelper, $coursecat, $depth) {
         // open category tag
-        echo "2";
         $classes = array('category');
         if (empty($coursecat->visible)) {
             $classes[] = 'dimmed_category';
         }
-        //Danilo Função comentada remove função de expandir profundidade da árvore
-        /*
         if ($chelper->get_subcat_depth() > 0 && $depth >= $chelper->get_subcat_depth()) {
             // do not load content
             $categorycontent = '';
@@ -1565,12 +1562,10 @@ class core_course_renderer extends plugin_renderer_base {
                 $this->categoryexpandedonload = true;
             }
         }
-        */
 
         // Make sure JS file to expand category content is included.
         $this->coursecat_include_js();
-        //Danilo Restante da geração das categorias
-        /*
+
         $content = html_writer::start_tag('div', array(
             'class' => join(' ', $classes),
             'data-categoryid' => $coursecat->id,
@@ -1581,7 +1576,6 @@ class core_course_renderer extends plugin_renderer_base {
 
         // category name
         $categoryname = $coursecat->get_formatted_name();
-        //echo $coursecat->get_formatted_name();
         $categoryname = html_writer::link(new moodle_url('/course/index.php',
                 array('categoryid' => $coursecat->id)),
                 $categoryname);
@@ -1601,10 +1595,6 @@ class core_course_renderer extends plugin_renderer_base {
         $content .= html_writer::end_tag('div'); // .category
 
         // Return the course category tree HTML
-        */
-        $file = $course->get_course_overviewfiles();
-        $isimage = $file->is_valid_image();
-        
         return $content;
     }
 
