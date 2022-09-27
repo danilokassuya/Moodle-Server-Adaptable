@@ -1,4 +1,4 @@
-#!\xampp\php\.\php.exe
+#!C:\Users\User\Moodle-Server-Adaptable\server\php\.\php.exe
 <?php
 /**
  * Get the Compatibility info from PHP CLI
